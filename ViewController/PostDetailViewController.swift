@@ -22,6 +22,7 @@ class PostDetailViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var commentButtonOutlet: UIButton!
     @IBOutlet weak var toolBarOutlet: UIToolbar!
     @IBOutlet weak var addImageOutlet: UIButton!
+    @IBOutlet weak var followOutlet: UIBarButtonItem!
     
     
     var picker = UIImagePickerController()
@@ -107,6 +108,15 @@ class PostDetailViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     @IBAction func followTapped(_ sender: Any) {
+        guard let post = post else {return}
+        PostController.shared.toggleSubscriptionTo(commentsForPost: post) { (subscribed) in
+            if subscribed {
+                self.followOutlet.title = "Unfollow"
+            } else {
+                self.followOutlet.title = "Follow"
+
+            }
+        }
     }
     @IBAction func likeTapped(_ sender: Any) {
     }

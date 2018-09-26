@@ -29,7 +29,7 @@ class PostController {
         let record = CKRecord(post: post)
         save(record)
     }
-    
+    //FIXME:
     func addComment(commentText: String, post: Post?, completion: @escaping (Comment?)->Void){
         guard let post = post,
         let ckRecordID = post.ckRecordID else {return}
@@ -152,16 +152,65 @@ class PostController {
         
     
     func addSubcriptionTo(commentsFor post: Post, completion: @escaping(_ success: Bool) -> Void){
-        guard let recordID = post.ckRecordID?.recordName else {return}
-        let predicate = NSPredicate(format: "recordName == @", recordID)
-        CKQuerySubscription(recordType: PostConstants.postTypeKey, predicate: predicate, options: .firesOnRecordCreation)
-        let ckSubscription = CKSubscription.NotificationInfo()
-        ckSubscription.alertBody = "New Comment"
-        ckSubscription.shouldSendContentAvailable = true
-        ckSubscription.desiredKeys = []
-
+        guard let recordID = post.ckRecordID else {return}
+        let predicate = NSPredicate(format: "recordID == %@", recordID)
+        //FIXME:
+        let ckSubscription = CKQuerySubscription(recordType: PostConstants.postTypeKey, predicate: predicate, options: [.firesOnRecordCreation, .firesOnRecordUpdate])
         
+        let notificationInfo = CKSubscription.NotificationInfo()
+        notificationInfo.alertBody = "New Comment"
+        notificationInfo.shouldSendContentAvailable = true
+        notificationInfo.shouldBadge = true
+        ckSubscription.notificationInfo = notificationInfo
+        publicDB.save(ckSubscription) { (subscription, error) in
+            if let error = error {
+                print ("💩💩 error in function \(#function), \(error.localizedDescription)💩💩")
+            }
+        }
+            
     }
+    
+    func removeSubscriptionTo(commentsForPost post: Post, completion: @escaping(Bool)->Void){
+        
+        publicDB.delete(withSubscriptionID: (post.ckRecordID?.recordName)!) { (string, error) in
+            if let error = error {
+                print ("💩💩 error in function \(#function), \(error.localizedDescription)💩💩")
+            }
+        }
+    }
+    
+    func checkSubscription(to post: Post, completion: @escaping(_ subscribed: Bool)->Void){
+       
+        publicDB.fetch(withSubscriptionID: (post.ckRecordID?.recordName)!) { (subsciption, error) in
+            if let error = error{
+                print ("💩💩 error in function \(#function), \(error) \(error.localizedDescription)💩💩")
+                completion(false)
+                return
+            }
+            if subsciption != nil{
+            completion(true)
+            } else {
+                completion(false)
+            }
+        }
+    }
+    
+    func toggleSubscriptionTo(commentsForPost post: Post, completion: @escaping (_ status: Bool)->Void){
+       
+        checkSubscription(to: post) { (success) in
+            if success {
+                self.removeSubscriptionTo(commentsForPost: post, completion: { (success) in
+                })
+                completion(true)
+            } else {
+                self.addSubcriptionTo(commentsFor: post, completion: { (success) in
+                })
+                completion(false)
+            }
+            
+        }
+    }
+    
         
     
     

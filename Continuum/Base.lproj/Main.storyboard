@@ -235,6 +235,7 @@
                         <outlet property="captionOutlet" destination="QL4-19-eAP" id="Nbx-8L-S5w"/>
                         <outlet property="commentButtonOutlet" destination="bix-uJ-R1d" id="ANt-eS-gBs"/>
                         <outlet property="commentsLabel" destination="5as-SA-bbK" id="XQu-Xj-3tV"/>
+                        <outlet property="followOutlet" destination="0tg-pY-9SR" id="JAr-rj-xc1"/>
                         <outlet property="imageOutlet" destination="Mji-5u-zV5" id="6zU-x8-cgb"/>
                         <outlet property="likeCountOutlet" destination="Wdi-Uz-1Db" id="D3R-c3-wEI"/>
                         <outlet property="toolBarOutlet" destination="AiN-Pg-j1D" id="9ao-TB-xmS"/>
@@ -263,20 +264,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iMB-qz-bqJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-938" y="-18"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="zN4-42-W0Q">
-            <objects>
-                <viewController id="7lZ-gG-0yp" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="6Rt-kB-mYa">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CAs-n7-ywU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1540" y="127"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
