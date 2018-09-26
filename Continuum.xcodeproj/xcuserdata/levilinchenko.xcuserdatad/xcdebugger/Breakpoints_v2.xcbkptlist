@@ -10,107 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Comment.swift"
-            timestampString = "559665866.7525491"
+            timestampString = "559685986.925006"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "CKRecord"
-            landmarkType = "21">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ModelController/PostController.swift"
-            timestampString = "559667544.975208"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "fetchCommentsFor(post:completion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;__C.CKRecord&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Continuum.PostController.fetchCommentsFor(post: Swift.Optional&lt;Continuum.Post&gt;, completion: () -&gt; ()) -&gt; ()"
-                  moduleName = "Continuum"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/levilinchenko/Desktop/iOS21/Continuum/ModelController/PostController.swift"
-                  timestampString = "559667545.12982"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63"
-                  offsetFromSymbolStart = "1130">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.CKRecord) -&gt; Swift.Optional&lt;Continuum.Comment&gt; in closure #1 (Swift.Optional&lt;Swift.Array&lt;__C.CKRecord&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Continuum.PostController.fetchCommentsFor(post: Swift.Optional&lt;Continuum.Post&gt;, completion: () -&gt; ()) -&gt; ()"
-                  moduleName = "Continuum"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/levilinchenko/Desktop/iOS21/Continuum/ModelController/PostController.swift"
-                  timestampString = "559667545.149389"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63"
-                  offsetFromSymbolStart = "26">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ModelController/PostController.swift"
-            timestampString = "559667544.975749"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "fetchCommentsFor(post:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ModelController/PostController.swift"
-            timestampString = "559667544.976144"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "fetchCommentsFor(post:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Comment.swift"
-            timestampString = "559665866.753879"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "init(comment:)"
             landmarkType = "7">
             <Locations>
@@ -122,7 +26,7 @@
                   moduleName = "Continuum"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/levilinchenko/Desktop/iOS21/Continuum/Comment.swift"
-                  timestampString = "559667545.188751"
+                  timestampString = "559689727.872345"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -137,12 +41,12 @@
                   moduleName = "Continuum"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/levilinchenko/Desktop/iOS21/Continuum/Comment.swift"
-                  timestampString = "559667545.191736"
+                  timestampString = "559689727.880079"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "48"
-                  endingLineNumber = "48"
-                  offsetFromSymbolStart = "60">
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "45">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -154,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ModelController/PostController.swift"
-            timestampString = "559667544.976674"
+            timestampString = "559689727.7110111"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
             landmarkName = "addSubcriptionTo(commentsFor:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -170,75 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ModelController/PostController.swift"
-            timestampString = "559667544.977183"
+            timestampString = "559689727.711499"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173"
-            landmarkName = "removeSubscriptionTo(commentsForPost:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ModelController/PostController.swift"
-            timestampString = "559667544.977544"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
-            landmarkName = "checkSubscription(to:completion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Continuum.PostController.checkSubscription(to: Continuum.Post, completion: (Swift.Bool) -&gt; ()) -&gt; ()"
-                  moduleName = "Continuum"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/levilinchenko/Desktop/iOS21/Continuum/ModelController/PostController.swift"
-                  timestampString = "559665466.150684"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "183"
-                  endingLineNumber = "183"
-                  offsetFromSymbolStart = "45">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.CKSubscription&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Continuum.PostController.checkSubscription(to: Continuum.Post, completion: (Swift.Bool) -&gt; ()) -&gt; ()"
-                  moduleName = "Continuum"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/levilinchenko/Desktop/iOS21/Continuum/ModelController/PostController.swift"
-                  timestampString = "559665466.1547019"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "184"
-                  endingLineNumber = "184"
-                  offsetFromSymbolStart = "53">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ModelController/PostController.swift"
-            timestampString = "559667544.97787"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
             landmarkName = "removeSubscriptionTo(commentsForPost:completion:)"
             landmarkType = "7">
             <Locations>
@@ -250,11 +90,11 @@
                   moduleName = "Continuum"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/levilinchenko/Desktop/iOS21/Continuum/ModelController/PostController.swift"
-                  timestampString = "559667545.213581"
+                  timestampString = "559689727.9072959"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "175"
-                  endingLineNumber = "175"
+                  startingLineNumber = "172"
+                  endingLineNumber = "172"
                   offsetFromSymbolStart = "42">
                </Location>
                <Location
@@ -265,11 +105,11 @@
                   moduleName = "Continuum"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/levilinchenko/Desktop/iOS21/Continuum/ModelController/PostController.swift"
-                  timestampString = "559667545.216591"
+                  timestampString = "559689727.910947"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "176"
-                  endingLineNumber = "176"
+                  startingLineNumber = "173"
+                  endingLineNumber = "173"
                   offsetFromSymbolStart = "41">
                </Location>
             </Locations>
@@ -278,64 +118,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ModelController/PostController.swift"
-            timestampString = "559667792.492072"
+            filePath = "ViewController/PostDetailViewController.swift"
+            timestampString = "559689727.711798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "addComment(commentText:post:completion:)"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "followTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ModelController/PostController.swift"
-            timestampString = "559667850.7154239"
+            filePath = "ViewController/PostDetailViewController.swift"
+            timestampString = "559689727.711856"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "addComment(commentText:post:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ModelController/PostController.swift"
-            timestampString = "559667888.891587"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "addComment(commentText:post:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ModelController/PostController.swift"
-            timestampString = "559667993.653024"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "save(_:)"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "followTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

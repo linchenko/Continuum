@@ -101,27 +101,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mji-5u-zV5">
-                                <rect key="frame" x="0.0" y="189" width="375" height="300"/>
+                                <rect key="frame" x="0.0" y="144" width="375" height="300"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Mji-5u-zV5" secondAttribute="height" multiplier="75:60" id="Cfb-PY-erP"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Username)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZJ-uK-y2F">
-                                <rect key="frame" x="134" y="159" width="107" height="22"/>
+                                <rect key="frame" x="134" y="114" width="107" height="22"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Caption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QL4-19-eAP">
-                                <rect key="frame" x="0.0" y="492" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="447" width="375" height="30"/>
                                 <color key="backgroundColor" red="0.36657285690307617" green="0.37501406669616699" blue="0.40764492750167847" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AiN-Pg-j1D">
-                                <rect key="frame" x="0.0" y="489" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="444" width="375" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="action" id="4Vn-Qr-u2I">
                                         <connections>
@@ -147,33 +147,33 @@
                                 </items>
                             </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SFD-Ud-ByY">
-                                <rect key="frame" x="8" y="537" width="359" height="21.5"/>
+                                <rect key="frame" x="8" y="492" width="359" height="21.5"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add Comment" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EOv-AQ-Tvg">
-                                <rect key="frame" x="0.0" y="588" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="543" width="375" height="30"/>
                                 <color key="backgroundColor" red="0.36242106556892395" green="0.37500864267349243" blue="0.40764579176902771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5as-SA-bbK">
-                                <rect key="frame" x="8" y="563.5" width="359" height="21.5"/>
+                                <rect key="frame" x="8" y="518.5" width="359" height="21.5"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bix-uJ-R1d">
-                                <rect key="frame" x="300" y="588" width="67" height="30"/>
+                                <rect key="frame" x="300" y="543" width="67" height="30"/>
                                 <state key="normal" title="Comment"/>
                                 <connections>
                                     <action selector="commentTapped:" destination="gGb-c6-1xy" eventType="touchUpInside" id="boU-Xo-okR"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8cq-7W-qAE">
-                                <rect key="frame" x="0.0" y="189" width="375" height="300"/>
+                                <rect key="frame" x="0.0" y="144" width="375" height="300"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <state key="normal" title="Add Image"/>
                                 <connections>
@@ -191,7 +191,7 @@
                             <constraint firstItem="AiN-Pg-j1D" firstAttribute="leading" secondItem="CYI-Cd-fou" secondAttribute="leading" id="5jg-S7-F2f"/>
                             <constraint firstItem="5as-SA-bbK" firstAttribute="top" secondItem="SFD-Ud-ByY" secondAttribute="bottom" constant="5" id="7Oi-OK-o8v"/>
                             <constraint firstItem="QL4-19-eAP" firstAttribute="top" secondItem="Mji-5u-zV5" secondAttribute="bottom" constant="3" id="7iM-1W-RQw"/>
-                            <constraint firstItem="Mji-5u-zV5" firstAttribute="top" secondItem="CYI-Cd-fou" secondAttribute="top" constant="125" id="8Ga-J1-P9k"/>
+                            <constraint firstItem="Mji-5u-zV5" firstAttribute="top" secondItem="CYI-Cd-fou" secondAttribute="top" constant="80" id="8Ga-J1-P9k"/>
                             <constraint firstItem="EOv-AQ-Tvg" firstAttribute="trailing" secondItem="CYI-Cd-fou" secondAttribute="trailing" id="9aM-Wy-LVR"/>
                             <constraint firstItem="SFD-Ud-ByY" firstAttribute="leading" secondItem="CYI-Cd-fou" secondAttribute="leading" constant="8" id="9cs-GX-Kx8"/>
                             <constraint firstItem="5as-SA-bbK" firstAttribute="leading" secondItem="CYI-Cd-fou" secondAttribute="leading" constant="8" id="ASR-fO-Ix3"/>

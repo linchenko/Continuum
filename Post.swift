@@ -16,7 +16,7 @@ class Post{
     var likeCount: Int
     var comments: [Comment]?
     let timeStamp: Date
-    let ckRecordID: CKRecord.ID?
+    let ckRecordID: CKRecord.ID
     var image: UIImage?{
         get{
             guard let imageData = imageData else {return nil}
@@ -93,7 +93,7 @@ struct PostConstants {
 
 extension CKRecord {
     convenience init(post: Post) {
-        self.init(recordType: PostConstants.postTypeKey, recordID: post.ckRecordID ?? CKRecord.ID(recordName: UUID().uuidString))
+        self.init(recordType: PostConstants.postTypeKey, recordID: post.ckRecordID)
         self.setValue(post.caption, forKey: PostConstants.captionKey)
         self.setValue(post.likeCount, forKey: PostConstants.likeCountKey)
         self.setValue(post.timeStamp, forKey: PostConstants.timeStampKey)

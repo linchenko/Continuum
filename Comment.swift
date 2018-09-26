@@ -11,19 +11,23 @@ import CloudKit
 
 class Comment {
     let commentText: String
-    let ckRecordID: CKRecord.ID?
+    var ckRecordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)
     weak var post: Post?
+    let postReference: CKRecord.Reference
     
-    init(commentText: String, timeStamp: Date = Date(), ckRecordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), post: Post) {
+    init(commentText: String, timeStamp: Date = Date(), post: Post, postReference: CKRecord.Reference) {
     self.commentText = commentText
-    self.ckRecordID = ckRecordID
     self.post = post
+    self.postReference = postReference
     }
     
     init?(ckRecord: CKRecord){
-        guard let commentText = ckRecord[CommentConstants.commentKey] as? String else { return nil }
+        guard let commentText = ckRecord[CommentConstants.commentKey] as? String,
+            let postReference = ckRecord[CommentConstants.postReferenceKey] as? CKRecord.Reference else { return nil }
         self.commentText = commentText
         self.ckRecordID = ckRecord.recordID
+        self.postReference = postReference
+    
         
     }
     
@@ -48,8 +52,8 @@ extension CKRecord {
         guard let post = comment.post else {
             fatalError("Comment doesn't have a parrent")
         }
-        guard let postCkrecordID = post.ckRecordID else {return nil}
-        self.init(recordType: CommentConstants.commentTypeKey, recordID: comment.ckRecordID ?? CKRecord.ID(recordName: UUID().uuidString))
+        let postCkrecordID = post.ckRecordID
+        self.init(recordType: CommentConstants.commentTypeKey, recordID: comment.ckRecordID)
         self.setValue(comment.commentText, forKey: CommentConstants.commentKey)
         self.setValue(CKRecord.Reference(recordID: postCkrecordID, action: .deleteSelf), forKey: CommentConstants.postReferenceKey)
     }

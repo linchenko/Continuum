@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 
 class PostDetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -30,9 +31,15 @@ class PostDetailViewController: UIViewController, UIImagePickerControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        PostController.shared.fetchCommentsFor(post: post) {
-//            
-//        }
+        PostController.shared.fetchCommentsFor(post: post) { (comments) in
+            guard let comments = comments else {return}
+            DispatchQueue.main.async {
+                let comments = comments.compactMap{$0.commentText}
+                
+                self.commentsLabel.text = "Comments\(comments)"
+            }
+
+        }
         
         
         picker.delegate = self
@@ -52,7 +59,6 @@ class PostDetailViewController: UIViewController, UIImagePickerControllerDelegat
             imageOutlet.image = post.image
             captionLabel.text = post.caption
             
-            commentsLabel.text = "Comments\(post.comments?.map{$0.commentText})"
         }
 
         // Do any additional setup after loading the view.
@@ -110,11 +116,14 @@ class PostDetailViewController: UIViewController, UIImagePickerControllerDelegat
     @IBAction func followTapped(_ sender: Any) {
         guard let post = post else {return}
         PostController.shared.toggleSubscriptionTo(commentsForPost: post) { (subscribed) in
-            if subscribed {
-                self.followOutlet.title = "Unfollow"
-            } else {
-                self.followOutlet.title = "Follow"
-
+            DispatchQueue.main.async {
+                if subscribed {
+                    self.followOutlet.title = "Unfollow"
+                } else {
+                    self.followOutlet.title = "Follow"
+                    
+                }
+                
             }
         }
     }
@@ -131,7 +140,9 @@ class PostDetailViewController: UIViewController, UIImagePickerControllerDelegat
     @IBAction func commentTapped(_ sender: Any) {
         guard let comment = addCommentOutlet.text else {return}
         guard let post = post else {return}
-        PostController.shared.addComment(commentText: comment, post: post) { (comment) in
+        let postRecordID = post.ckRecordID
+        let recordID = CKRecord.Reference(recordID: postRecordID, action: .deleteSelf)
+        PostController.shared.addComment(commentText: comment, post: post, postReference: recordID) { (comment) in
         }
         commentsLabel.text = "Comments\(post.comments?.map{$0.commentText})"
         addCommentOutlet.text = ""
