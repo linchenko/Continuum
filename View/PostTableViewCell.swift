@@ -23,6 +23,10 @@ class PostTableViewCell: UITableViewCell {
         guard let post = post else {print(#file); return}
         postImage.image = post.image
         captionOutlet.text = post.caption
+        
+        PostController.shared.fetchCommentsFor(post: post) { (comments) in
+            
+        }
     }
     
     override func awakeFromNib() {

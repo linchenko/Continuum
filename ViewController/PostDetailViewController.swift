@@ -10,10 +10,10 @@ import UIKit
 import CloudKit
 
 
-class PostDetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class PostDetailViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
-    @IBOutlet weak var userOutlet: UILabel!
+    
     @IBOutlet weak var captionOutlet: UITextField!
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var commentsLabel: UILabel!
@@ -26,26 +26,17 @@ class PostDetailViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var followOutlet: UIBarButtonItem!
     
     
+    
+
     var picker = UIImagePickerController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        PostController.shared.fetchCommentsFor(post: post) { (comments) in
-            guard let comments = comments else {return}
-            DispatchQueue.main.async {
-                let comments = comments.compactMap{$0.commentText}
-                
-                self.commentsLabel.text = "Comments\(comments)"
-            }
-
-        }
-        
         
         picker.delegate = self
         
         
-        userOutlet.isHidden = true
         if post == nil {
             captionLabel.isHidden = true
             commentsLabel.isHidden = true
@@ -59,12 +50,30 @@ class PostDetailViewController: UIViewController, UIImagePickerControllerDelegat
             imageOutlet.image = post.image
             captionLabel.text = post.caption
             
+            
         }
 
         // Do any additional setup after loading the view.
     }
     
-    var post: Post?
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard let post = post else {return}
+        PostController.shared.checkSubscription(to: post) { (success) in
+            DispatchQueue.main.async {
+                if success {
+                    self.followOutlet.title = "Unfollow"
+                } else {
+                    self.followOutlet.title = "Follow"
+                }
+            }
+        }
+    }
+    
+        var post: Post?
+    
+    
+    
     
 
  
@@ -73,8 +82,8 @@ class PostDetailViewController: UIViewController, UIImagePickerControllerDelegat
         
         UIImagePickerController.isSourceTypeAvailable(.photoLibrary)
         
-        
-        let photoAction = UIAlertAction(title: "Library", style: .default) { (completion) in
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let photoAction = UIAlertAction(title: "Photos", style: .default) { (completion) in
             self.picker.sourceType = .photoLibrary
             self.present(self.picker, animated: true)
         }
@@ -85,6 +94,7 @@ class PostDetailViewController: UIViewController, UIImagePickerControllerDelegat
         }
         alertController.addAction(photoAction)
         alertController.addAction(cameraAction)
+        alertController.addAction(cancelAction)
         present(alertController, animated: true)
        
         
@@ -106,9 +116,11 @@ class PostDetailViewController: UIViewController, UIImagePickerControllerDelegat
     
     @IBAction func savePostTapped(_ sender: Any) {
         guard let image = imageOutlet.image,
-            let text = captionOutlet.text else {return}
+            let text = captionOutlet.text,
+            let user = UserController.user else {return}
         guard text != "" else {return}
-        PostController.shared.createPost(caption: text, image: image) { (Post) in
+        let userReference = CKRecord.Reference(recordID: user.recordID, action: .deleteSelf)
+        PostController.shared.createPost(caption: text, image: image, user: userReference) { (Post) in
         }
         self.navigationController?.popViewController(animated: true)
     }
@@ -142,22 +154,44 @@ class PostDetailViewController: UIViewController, UIImagePickerControllerDelegat
         guard let post = post else {return}
         let postRecordID = post.ckRecordID
         let recordID = CKRecord.Reference(recordID: postRecordID, action: .deleteSelf)
-        PostController.shared.addComment(commentText: comment, post: post, postReference: recordID) { (comment) in
+        PostController.shared.addComment(commentText: comment, post: post, postReference: recordID) { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
         }
-        commentsLabel.text = "Comments\(post.comments?.map{$0.commentText})"
+        
         addCommentOutlet.text = ""
         addCommentOutlet.resignFirstResponder()
         
         
+        
     }
     @IBAction func addImageTapped(_ sender: Any) {
-        addImageOutlet.setTitle("", for: .normal)
+        addImageOutlet.setTitle("Change Image", for: .normal)
         
         presentPickerView()
         
     }
     
-    
 
+    
+}
+
+extension PostDetailViewController{
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let comments = post?.comments else {return 0}
+        return comments.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let comments = post?.comments else {return UITableViewCell()}
+        let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath)
+        let comment = comments[indexPath.row]
+        cell.textLabel?.text = comment.commentText
+        return cell
+    }
+    
     
 }

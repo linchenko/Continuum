@@ -18,7 +18,11 @@
 		7E317D0F215ADD3D0079BF70 /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E317D0E215ADD3D0079BF70 /* PostController.swift */; };
 		7E317D11215AEC0D0079BF70 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E317D10215AEC0D0079BF70 /* Comment.swift */; };
 		7E317D14215AF63B0079BF70 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E317D13215AF63B0079BF70 /* PostTableViewCell.swift */; };
-		7E317D16215B13B10079BF70 /* Searchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E317D15215B13B10079BF70 /* Searchable.swift */; };
+		7E317D16215B13B10079BF70 /* Protocals+Assests+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E317D15215B13B10079BF70 /* Protocals+Assests+Convenience.swift */; };
+		7E7F2EEB215D9EB500975CBA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7F2EEA215D9EB500975CBA /* User.swift */; };
+		7E7F2F0D215DD9AB00975CBA /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7F2F0C215DD9AB00975CBA /* UserController.swift */; };
+		7E7F2F0F215DEC7100975CBA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7F2F0E215DEC7100975CBA /* LoginViewController.swift */; };
+		7E7F2F11215DEC8900975CBA /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7F2F10215DEC8900975CBA /* SingUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +40,11 @@
 		7E317D0E215ADD3D0079BF70 /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
 		7E317D10215AEC0D0079BF70 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		7E317D13215AF63B0079BF70 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
-		7E317D15215B13B10079BF70 /* Searchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Searchable.swift; sourceTree = "<group>"; };
+		7E317D15215B13B10079BF70 /* Protocals+Assests+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Protocals+Assests+Convenience.swift"; sourceTree = "<group>"; };
+		7E7F2EEA215D9EB500975CBA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7E7F2F0C215DD9AB00975CBA /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		7E7F2F0E215DEC7100975CBA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		7E7F2F10215DEC8900975CBA /* SingUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +106,8 @@
 			children = (
 				7E317D05215AD3D10079BF70 /* Post.swift */,
 				7E317D10215AEC0D0079BF70 /* Comment.swift */,
-				7E317D15215B13B10079BF70 /* Searchable.swift */,
+				7E317D15215B13B10079BF70 /* Protocals+Assests+Convenience.swift */,
+				7E7F2EEA215D9EB500975CBA /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -107,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				7E317D0E215ADD3D0079BF70 /* PostController.swift */,
+				7E7F2F0C215DD9AB00975CBA /* UserController.swift */,
 			);
 			path = ModelController;
 			sourceTree = "<group>";
@@ -116,6 +126,8 @@
 			children = (
 				7E317D0A215ADD1A0079BF70 /* PostDetailViewController.swift */,
 				7E317D0C215ADD2E0079BF70 /* PostListTableViewController.swift */,
+				7E7F2F0E215DEC7100975CBA /* LoginViewController.swift */,
+				7E7F2F10215DEC8900975CBA /* SingUpViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -212,12 +224,16 @@
 			files = (
 				7E317D14215AF63B0079BF70 /* PostTableViewCell.swift in Sources */,
 				7E317D0F215ADD3D0079BF70 /* PostController.swift in Sources */,
+				7E7F2F0D215DD9AB00975CBA /* UserController.swift in Sources */,
 				7E317D11215AEC0D0079BF70 /* Comment.swift in Sources */,
 				7E317CF0215AD0330079BF70 /* AppDelegate.swift in Sources */,
 				7E317D0B215ADD1A0079BF70 /* PostDetailViewController.swift in Sources */,
-				7E317D16215B13B10079BF70 /* Searchable.swift in Sources */,
+				7E7F2EEB215D9EB500975CBA /* User.swift in Sources */,
+				7E317D16215B13B10079BF70 /* Protocals+Assests+Convenience.swift in Sources */,
 				7E317D06215AD3D10079BF70 /* Post.swift in Sources */,
 				7E317D0D215ADD2E0079BF70 /* PostListTableViewController.swift in Sources */,
+				7E7F2F11215DEC8900975CBA /* SingUpViewController.swift in Sources */,
+				7E7F2F0F215DEC7100975CBA /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

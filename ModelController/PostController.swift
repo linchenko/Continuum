@@ -15,6 +15,7 @@ class PostController {
     static let shared = PostController()
     let publicDB = CKContainer.default().publicCloudDatabase
     
+    var currentUserRecordID: CKRecord.ID?
     var posts:[Post] = []{
         didSet{
             
@@ -23,20 +24,22 @@ class PostController {
     }
     let postsUpdatedNotificationName = Notification.Name("PostsWereUpdated")
     
-    func createPost(caption: String, image: UIImage, completion: @escaping (Post)->Void){
-        let post = Post(caption: caption, image: image)
+    func createPost(caption: String, image: UIImage, user: CKRecord.Reference, completion: @escaping (Post)->Void){
+        var post = Post(caption: caption, image: image, user: user)
+        
         posts.append(post)
-        let record = CKRecord(post: post)
+        let record = CKRecord(post: &post)
         save(record)
     }
-    //FIXME:
-    func addComment(commentText: String, post: Post?, postReference: CKRecord.Reference, completion: @escaping (Comment?)->Void){
-        guard let post = post else {return}
-       
-        let comment = Comment(commentText: commentText, post: post, postReference: postReference)
+    
+    func addComment(commentText: String, post: Post?, postReference: CKRecord.Reference, completion: @escaping (Bool)->Void){
+        guard let post = post else {completion(false);return}
+        
+        let comment = Comment(commentText: commentText, timeStamp: Date(), post: post, postReference: postReference)
         post.comments?.append(comment)
-        guard let record = CKRecord(comment: comment) else {return}
+        guard let record = CKRecord(comment: comment) else {completion(false);return}
         save(record)
+        completion(true)
     
     }
     
@@ -50,11 +53,18 @@ class PostController {
         }
     }
     
+ 
+    
     func fetchCommentsFor(post: Post?, completion: @escaping(_ comments: [Comment]?)->Void){
         guard let post = post  else {return}
         let recordID = post.ckRecordID
-        let predicate = NSPredicate(format: "PostReference == %@", recordID)
-        let query = CKQuery(recordType: CommentConstants.commentTypeKey, predicate: predicate)
+        let predicate = NSPredicate(format: "%K == %@", CommentConstants.postReferenceKey, recordID)
+        let predicate2 = NSPredicate(format: "%K == %@", PostConstants.likeCountKey, recordID)
+
+        let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate, predicate2])
+        let query = CKQuery(recordType: CommentConstants.commentTypeKey, predicate: compoundPredicate)
+        query.sortDescriptors = [NSSortDescriptor(key: CommentConstants.timeStampKey, ascending: false)]
+        
         publicDB.perform(query, inZoneWith: nil) { (records, error) in
             if let error = error {
                 print ("💩💩 error in function \(#function), \(error.localizedDescription)💩💩")
@@ -62,10 +72,16 @@ class PostController {
             }
             guard let records = records else {completion(nil);return}
             let comments = records.compactMap{ Comment(ckRecord: $0)}
+            
+            post.comments = comments
+            print(post.likeCount.count)
             completion(comments)
+            
         }
+        
     
     }
+    
     
     func fetchPosts(completion: @escaping()->Void){
         let predicate = NSPredicate(value: true)
@@ -80,6 +96,17 @@ class PostController {
             self.posts = postsArray
         }
     }
+    func fetchCurrentUser(){
+        CKContainer.default().fetchUserRecordID { (recordID, error) in
+            if let error = error {
+                print ("💩💩 error in function \(#function), \(error.localizedDescription)💩💩")
+            }
+            
+            self.currentUserRecordID = recordID
+        }
+    }
+    
+    
     
     func checkAccountStatus(completion: @escaping (_ osLoggedIn: Bool) -> Void){
         CKContainer.default().accountStatus { (status, error) in
@@ -149,7 +176,7 @@ class PostController {
         let recordID = post.ckRecordID
         let predicate = NSPredicate(format: "%K == %@", CommentConstants.postReferenceKey, recordID)
         //FIXME:
-        let ckSubscription = CKQuerySubscription(recordType: CommentConstants.commentTypeKey, predicate: predicate, options: [.firesOnRecordCreation, .firesOnRecordUpdate])
+        let ckSubscription = CKQuerySubscription(recordType: CommentConstants.commentTypeKey, predicate: predicate, subscriptionID: recordID.recordName, options: .firesOnRecordCreation)
         
         let notificationInfo = CKSubscription.NotificationInfo()
         notificationInfo.alertActionLocalizationKey = "Continuum Udate"

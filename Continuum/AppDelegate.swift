@@ -17,18 +17,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        PostController.shared.checkAccountStatus { (success) in
-        }
         UNUserNotificationCenter.current().delegate = self
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (success, error) in
-            if let error = error {
-                print ("💩💩 error in function \(#function), \(error.localizedDescription)💩💩")
-            }
-            PostController.shared.subscribeToRecord(completionHandler: { (subcriptuion, error) in
-                if let error = error {
-                    print ("💩💩 error in function \(#function), \(error.localizedDescription)💩💩")
+        PostController.shared.checkAccountStatus { (success) in
+            if success {
+                PostController.shared.fetchCurrentUser()
+            } else {
+                
+                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (success, error) in
+                    if let error = error {
+                        print ("💩💩 error in function \(#function), \(error.localizedDescription)💩💩")
+                    }
+                    PostController.shared.subscribeToRecord(completionHandler: { (subcriptuion, error) in
+                        if let error = error {
+                            print ("💩💩 error in function \(#function), \(error.localizedDescription)💩💩")
+                        }
+                    })
                 }
-            })
+            }
         }
         return true
     }
